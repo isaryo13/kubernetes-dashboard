@@ -1,0 +1,20 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+resources:
+- dashboard-rc6.yml
+patchesStrategicMerge:
+- dashboard-patches.yml
+
+# NOTE: Apply the following patches when PR #2167 is released.
+#       https://github.com/kubernetes-sigs/kustomize/pull/2167
+
+# --- ./kustomization.yml before
+# +++ ./kustomization.yml after
+# @@ -1,7 +1,7 @@
+#  kind: Kustomization
+#  apiVersion: kustomize.config.k8s.io/v1beta1
+#  resources:
+# -- dashboard-rc6.yml
+# +- https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc6/aio/deploy/recommended.yaml
+#  patchesStrategicMerge:
+#  - dashboard-patches.yml
